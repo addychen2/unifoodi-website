@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Container,
@@ -42,8 +41,8 @@ const theme = createTheme({
   },
 });
 
-const StyledContactIcon = styled(IconButton)(({ theme }) => ({
-  backgroundColor: '#32936F',
+const StyledContactIcon = styled(IconButton)(() => ({
+    backgroundColor: '#32936F',
   color: 'white',
   padding: '12px',
   width: '48px',
