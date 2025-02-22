@@ -12,6 +12,22 @@ Deploy your own Vite project with Vercel.
 
 _Live Example: https://vite-react-example.vercel.app_
 
+# Development testing
+```
+npm install
+
+npm run dev
+```
+
+## Deployment Testing
+```
+corepack enable
+
+pnpm install
+
+pnpm run build
+```
+
 ### Deploying From Your Terminal
 
 You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
