@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Container, Card, CardContent, Typography, Avatar, Box } from "@mui/material";
 import Abaigael_Savio from "./unifoodi_linkedin_pfps/Abaigael_Savio.jpg";
 import Addison_Chen from "./unifoodi_linkedin_pfps/Addison_Chen.jpg";
 import Alex_Yanez from "./unifoodi_linkedin_pfps/Alex_Yanez.jpg";
@@ -9,78 +10,81 @@ import Daniel_Becker from "./unifoodi_linkedin_pfps/Daniel_Becker.jpg";
 import Daniel_Guel from "./unifoodi_linkedin_pfps/Daniel_Guel.jpg";
 import Miriya_Harth from "./unifoodi_linkedin_pfps/Miriya_Harth.jpg";
 import Zara_White from "./unifoodi_linkedin_pfps/Zara_White.jpg";
-import "./AboutUs.css"; // Import the CSS file
+import Archit_Bhatt from "./unifoodi_linkedin_pfps/Archit_Bhatt.jpg";
 
-// List of team members with their image, name, and role
+// Team Members List
 const teamMembers = [
   { name: "Anthony Heard", role: "Lead Developer", image: Anthony_Heard },
   { name: "Daniel Becker", role: "Software Engineer", image: Daniel_Becker },
   { name: "Abaigael Savio", role: "Product Manager", image: Abaigael_Savio },
   { name: "Addison Chen", role: "UI/UX Designer", image: Addison_Chen },
+  { name: "Alex Yanez", role: "Frontend Developer", image: Alex_Yanez },
+  { name: "Ali Moradi", role: "Backend Developer", image: Ali_Moradi },
+  { name: "Austin Grey", role: "Data Scientist", image: Austin_Grey },
+  { name: "Daniel Guel", role: "Marketing Specialist", image: Daniel_Guel },
+  { name: "Miriya Harth", role: "Project Coordinator", image: Miriya_Harth },
+  { name: "Zara White", role: "Content Creator", image: Zara_White },
+  { name: "Archit Bhatt", role: "Founder & CEO", image: Archit_Bhatt },
 ];
 
 function AboutUs() {
-  // State to keep track of the current team member index
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to go to the next team member
-  const nextMember = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
-  };
-
-  // Automatically move to the next team member every 3 seconds
+  // Automatically cycle through team members
   useEffect(() => {
-    const interval = setInterval(nextMember, 3000); // 3000 ms = 3 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
+    }, 3000);
 
-    // Clean up interval when the component unmounts
     return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs only once when the component mounts
+  }, []);
 
   return (
-    <div className="container">
-      <div className="card">
-        <h1 className="heading">About Unifood</h1>
+    <Container maxWidth="md" sx={{ mt: 4, textAlign: "center" }}>
+      <Card sx={{ p: 3, borderRadius: 3, boxShadow: 3 }}>
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          About Unifood
+        </Typography>
 
         {/* Mission Section */}
-        <section className="mb-8">
-          <h2 className="section-title">Our Mission</h2>
-          <p className="section-text">
-            At Unifood, our mission is to reduce food waste by creating an
-            innovative system that allows excess food to be shared and utilized
-            efficiently. We strive to build a sustainable future where no food
-            goes to waste.
-          </p>
-        </section>
+        <CardContent>
+          <Typography variant="h5" color="primary" gutterBottom>
+            Our Mission
+          </Typography>
+          <Typography variant="body1" paragraph>
+            At Unifood, our mission is to reduce food waste by creating an innovative system that
+            allows excess food to be shared and utilized efficiently. We strive to build a sustainable
+            future where no food goes to waste.
+          </Typography>
+        </CardContent>
 
         {/* Team Section */}
-        <section className="team-members-section">
-          <h2 className="section-title">Meet Our Team</h2>
-          <p className="section-text">
-            Our team consists of passionate and talented individuals dedicated
-            to making a positive impact on the environment and food
-            sustainability.
-          </p>
-        </section>
+        <CardContent>
+          <Typography variant="h5" color="primary" gutterBottom>
+            Meet Our Team
+          </Typography>
+          <Typography variant="body1">
+            Our team consists of passionate and talented individuals dedicated to making a positive
+            impact on the environment and food sustainability.
+          </Typography>
+        </CardContent>
 
-        {/* Team Members Carousel */}
-        <section className="team-members-section">
-          <h2 className="section-title">Team Members</h2>
-
-          {/* Carousel - Displaying the current team member */}
-          <div className="team-member-card">
-            <img
-              src={teamMembers[currentIndex].image}
-              alt={teamMembers[currentIndex].name}
-              className="team-member-img"
-            />
-            <h3 className="team-member-name">
-              {teamMembers[currentIndex].name}
-            </h3>
-            <p className="team-member-role">{teamMembers[currentIndex].role}</p>
-          </div>
-        </section>
-      </div>
-    </div>
+        {/* Team Member Carousel */}
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", my: 3 }}>
+          <Avatar
+            src={teamMembers[currentIndex].image}
+            alt={teamMembers[currentIndex].name}
+            sx={{ width: 120, height: 120, mb: 2, boxShadow: 3 }}
+          />
+          <Typography variant="h6" fontWeight="bold">
+            {teamMembers[currentIndex].name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {teamMembers[currentIndex].role}
+          </Typography>
+        </Box>
+      </Card>
+    </Container>
   );
 }
 
