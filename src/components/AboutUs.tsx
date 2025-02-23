@@ -8,8 +8,7 @@ import {
   Box, 
   createTheme, 
   ThemeProvider, 
-  Modal, 
-  Backdrop, 
+  Modal,
   Fade, 
   Button 
 } from "@mui/material";
