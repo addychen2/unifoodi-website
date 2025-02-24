@@ -27,7 +27,6 @@ import Zara_White from "./unifoodi_linkedin_pfps/Zara_White.jpg";
 import Archit_Bhatt from "./unifoodi_linkedin_pfps/Archit_Bhatt.jpg";
 import AboutImage from "./Company_Logos/UNiFOODi Logo (No Background).png"; 
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
-
 // Interface to define the structure of a team member
 interface TeamMember {
   name: string;
@@ -39,23 +38,24 @@ interface TeamMember {
 // Creating a theme with custom fonts for the page
 const theme = createTheme({
   typography: {
-    fontFamily: "Poppins, Arial, sans-serif",
+    fontFamily: "Inter, Arial, sans-serif", // Default font for the app
     h5: {
-      fontFamily: "Playfair Display, serif",
+      fontFamily: "Merriweather, serif",
       fontWeight: 700,
     },
     h6: {
-      fontFamily: "Playfair Display, serif",
+      fontFamily: "Merriweather, serif",
       fontWeight: 600,
     },
     body1: {
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "Inter, sans-serif",
     },
     body2: {
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "Inter, sans-serif",
     },
   },
 });
+
 
 // List of team members with their information
 const teamMembers: TeamMember[] = [
@@ -211,7 +211,7 @@ function AboutUs() {
             <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 400, bgcolor: "background.paper", boxShadow: 24, p: 4, borderRadius: 2, textAlign: "center" }}>
               {selectedMember && (
                 <>
-                  <Avatar src={selectedMember.image} alt={selectedMember.name} sx={{ width: 150, height: 150, mb: 2, boxShadow: 3, margin: "auto" }} />
+                  <Avatar src={selectedMember.image} alt={selectedMember.name} sx={{ width: 120, height: 120, mb: 2, boxShadow: 3, margin: "auto" }} />
                   <Typography variant="h6">{selectedMember.name}</Typography>
                   <Typography variant="body2" color="#32936F">{selectedMember.role}</Typography>
                   <Typography variant="body1" sx={{ mt: 2, color: "#32936F" }}>{selectedMember.description}</Typography>
