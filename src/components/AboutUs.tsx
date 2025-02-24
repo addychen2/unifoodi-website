@@ -25,7 +25,8 @@ import Daniel_Guel from "./unifoodi_linkedin_pfps/Daniel_Guel.jpg";
 import Miriya_Harth from "./unifoodi_linkedin_pfps/Miriya_Harth.jpg";
 import Zara_White from "./unifoodi_linkedin_pfps/Zara_White.jpg";
 import Archit_Bhatt from "./unifoodi_linkedin_pfps/Archit_Bhatt.jpg";
-import AboutImage from "./Company_Logos/UNiFOODi Logo (No Background).png"; // Header image for the page
+import AboutImage from "./Company_Logos/UNiFOODi Logo (No Background).png"; 
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
 // Interface to define the structure of a team member
 interface TeamMember {
@@ -131,9 +132,19 @@ function AboutUs() {
         {/* Card for Our Mission */}
         <Card variant="outlined" sx={{ p: 2, mb: 4, backgroundColor: "#BBE5ED", borderRadius: "16px", transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" } }}>
           <CardContent>
-            <Typography variant="h5" gutterBottom>
-              Our Mission
-            </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
+              {/* Circular background around lightbulb */}
+              <Box sx={{ width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", backgroundColor: "#32936F" }}>
+                <LightbulbIcon sx={{ color: "#BBE5ED" }} />
+              </Box>
+
+              {/* Rounded rectangle behind text */}
+              <Box sx={{ px: 2, py: 0.5, borderRadius: "12px" }}>
+                <Typography variant="h5" gutterBottom>
+                  Our Mission
+                </Typography>
+              </Box>
+            </Box>
             <Typography variant="body1">
               UNiFOODi is dedicated to addressing food waste and food insecurity at the University of California,
               Merced. Our mission is to promote sustainability in reducing food waste mitigation and student food
@@ -141,54 +152,56 @@ function AboutUs() {
             </Typography>
           </CardContent>
         </Card>
-  
-        {/* Company History & Leadership, Company Goals, Meet Our Team */}
-        <Box sx={{ backgroundColor: "#3A405A", borderRadius: "16px", p: 2,mb:4, boxShadow: 2 }}>
-          <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED" }}>
-            <CardContent>
-              <Typography variant="h5" gutterBottom>
-                Company History & Leadership
-              </Typography>
-              <Typography variant="body1">
-                Established in October 2023 by Daniel Guel, Anthony “AJ” Heard, and Javier Miranda, UNiFOODi has
-                rapidly progressed towards its goal of launching a comprehensive food distribution platform.
-              </Typography>
-            </CardContent>
-          </Card>
+        
 
-          <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED" }}>
-            <CardContent>
-              <Typography variant="h5" gutterBottom>
-                Company Goals
-              </Typography>
-              <Typography variant="body1">
-                Our immediate goal is to successfully soft launch the platform in March 2025 on the UC Merced campus.
-                By 2026, we aspire to be a leading model for university-based food sustainability initiatives.
-              </Typography>
-            </CardContent>
-          </Card>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 5, mb: 2 }}>
+           {/* Company History & Leadership, Company Goals, Meet Our Team */}
+        <Card sx={{ backgroundColor: "white", borderRadius: "16px", p: 2,mb:4, boxShadow: 2, transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}}>
+              <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED",transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" } }}>
+                <CardContent>
+                  <Typography variant="h5" gutterBottom>
+                    Company History & Leadership
+                  </Typography>
+                  <Typography variant="body1">
+                    Established in October 2023 by Daniel Guel, Anthony “AJ” Heard, and Javier Miranda, UNiFOODi has
+                    rapidly progressed towards its goal of launching a comprehensive food distribution platform.
+                  </Typography>
+                </CardContent>
+              </Card>
 
-          <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED" }}>
-            <CardContent>
-              <Typography variant="h5" gutterBottom>
-                Meet Our Team
-              </Typography>
-              <Typography variant="body1">
-                Our team consists of passionate and talented individuals dedicated to making a positive impact on the
-                environment and food sustainability.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
+              <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED" , transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}}>
+                <CardContent>
+                  <Typography variant="h5" gutterBottom>
+                    Company Goals
+                  </Typography>
+                  <Typography variant="body1">
+                    Our immediate goal is to successfully soft launch the platform in March 2025 on the UC Merced campus.
+                    By 2026, we aspire to be a leading model for university-based food sustainability initiatives.
+                  </Typography>
+                </CardContent>
+              </Card>
+
+              <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED" ,transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}}>
+                <CardContent>
+                  <Typography variant="h5" gutterBottom>
+                    Meet Our Team
+                  </Typography>
+                  <Typography variant="body1">
+                    Our team consists of passionate and talented individuals dedicated to making a positive impact on the
+                    environment and food sustainability.
+                  </Typography>
+                </CardContent>
+              </Card>
+        </Card>
 
         {/* Display current team member */}
-        <Card variant="outlined" sx={{ p: 6, mb: 4, backgroundColor: "#BBE5ED", borderRadius: "16px", transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" } }}>
+        <Card variant="outlined" sx={{ p: 20, mb: 4, backgroundColor: "#BBE5ED", borderRadius: "16px", borderColor: "black"}}>
           <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", my: 5 }}>
             <Button onClick={() => handleOpen(teamMembers[currentIndex])} >
               <Avatar src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} sx={{ width: 250, height: 250, mb: 2, boxShadow: 3 }} />
             </Button>
-            <Typography variant="h6">{teamMembers[currentIndex].name}</Typography>
-            <Typography variant="body2" color="text.secondary">{teamMembers[currentIndex].role}</Typography>
+            <Typography variant="h4" color = "black">{teamMembers[currentIndex].name}</Typography>
+            <Typography variant="h6" color="black">{teamMembers[currentIndex].role  }</Typography>
           </Box>
         </Card>
 
@@ -208,6 +221,11 @@ function AboutUs() {
             </Box>
           </Fade>
         </Modal>
+
+
+          </Box>
+
+       
 
       </Container>
     </ThemeProvider>
