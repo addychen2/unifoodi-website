@@ -59,7 +59,7 @@ const theme = createTheme({
 
 // List of team members with their information
 const teamMembers: TeamMember[] = [
-  { name: "Anthony Heard", role: "Lead Developer", image: Anthony_Heard, description: "Anthony is responsible for leading the development of the platform, ensuring robust and scalable solutions." },
+  { name: "Anthony Heard", role: "(CCO) Cheif Communications Officer", image: Anthony_Heard, description: "Anthony is responsible for leading the development of the platform, ensuring robust and scalable solutions." },
   { name: "Daniel Becker", role: "Software Engineer", image: Daniel_Becker, description: "Daniel works on backend development and system architecture for UNiFOODi." },
   { name: "Abaigael Savio", role: "Product Manager", image: Abaigael_Savio, description: "Abaigael oversees the product vision, ensuring alignment with user needs and business goals." },
   { name: "Addison Chen", role: "UI/UX Designer", image: Addison_Chen, description: "Addison creates seamless and engaging user experiences through thoughtful design." },
@@ -107,7 +107,6 @@ function AboutUs() {
       <Container
         maxWidth="md"
         sx={{
-          mt: 4,
           textAlign: "center",
           backgroundImage: `url('path_to_your_image.jpg')`,  // Replace with actual image path
           backgroundSize: 'cover',
@@ -134,7 +133,7 @@ function AboutUs() {
           <CardContent>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mb: 2 }}>
               {/* Circular background around lightbulb */}
-              <Box sx={{ width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", backgroundColor: "#32936F" }}>
+              <Box sx={{ width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", backgroundColor: "#2BC016" }}>
                 <LightbulbIcon sx={{ color: "#BBE5ED" }} />
               </Box>
 
@@ -154,9 +153,9 @@ function AboutUs() {
         </Card>
         
 
+        {/* Company History & Leadership, Company Goals, Meet Our Team */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 5, mb: 2 }}>
-           {/* Company History & Leadership, Company Goals, Meet Our Team */}
-        <Card sx={{ backgroundColor: "white", borderRadius: "16px", p: 2,mb:4, boxShadow: 2, transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}}>
+        <Card sx={{ backgroundColor: "#BBE5ED", borderRadius: "16px", p: 2,mb:4, boxShadow: 2, transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}}>
               <Card variant="outlined" sx={{ p: 2, mb: 4, borderRadius: "16px", bgcolor: "#BBE5ED",transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" } }}>
                 <CardContent>
                   <Typography variant="h5" gutterBottom>
@@ -195,13 +194,37 @@ function AboutUs() {
         </Card>
 
         {/* Display current team member */}
-        <Card variant="outlined" sx={{ p: 20, mb: 4, backgroundColor: "#BBE5ED", borderRadius: "16px", borderColor: "black"}}>
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", my: 5 }}>
-            <Button onClick={() => handleOpen(teamMembers[currentIndex])} >
-              <Avatar src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} sx={{ width: 250, height: 250, mb: 2, boxShadow: 3 }} />
-            </Button>
-            <Typography variant="h4" color = "black">{teamMembers[currentIndex].name}</Typography>
-            <Typography variant="h6" color="black">{teamMembers[currentIndex].role  }</Typography>
+        <Card variant="outlined" sx={{ p: 20, mb: 4, backgroundColor: "#BBE5ED", borderRadius: "16px", justifyContent:"center"}}>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+
+                
+                <Typography variant="h5">Unifoodi Members</Typography>
+
+                <Card sx={{display: "flex", flexDirection: "column",backgroundColor: "#BBE5ED", borderRadius: "16px", boxShadow: 2, transition: "all 0.3s ease-in-out", "&:hover": { transform: "scale(1.05)" }}} > 
+
+                  <Button onClick={()=> handleOpen(teamMembers[0])} >  
+                    <Avatar src={teamMembers[0].image} alt={teamMembers[0].name} sx={{ width: 250, height: 250, mb: 2, boxShadow: 3 }} />
+                    <Typography variant="h4" color = "black">{teamMembers[0].name}</Typography>
+                    <Typography variant="h6" color="black">{teamMembers[0].role  }</Typography>
+                  </Button>
+
+                  <Button onClick={()=> handleOpen(teamMembers[1])} >  
+                    <Avatar src={teamMembers[1].image} alt={teamMembers[1].name} sx={{ width: 250, height: 250, mb: 2, boxShadow: 3 }} />
+                    <Typography variant="h4" color = "black">{teamMembers[1].name}</Typography>
+                    <Typography variant="h6" color="black">{teamMembers[1].role  }</Typography>
+                  </Button>
+
+
+                </Card>
+
+
+                <Button onClick={() => handleOpen(teamMembers[currentIndex])} >
+                  <Avatar src={teamMembers[currentIndex].image} alt={teamMembers[currentIndex].name} sx={{ width: 250, height: 250, mb: 2, boxShadow: 3 }} />
+                </Button>
+
+                <Typography variant="h4" color = "black">{teamMembers[currentIndex].name}</Typography>
+                <Typography variant="h6" color="black">{teamMembers[currentIndex].role  }</Typography>
+
           </Box>
         </Card>
 
